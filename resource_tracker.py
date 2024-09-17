@@ -1,11 +1,11 @@
 import copy
 
-from src import functions_json as fj
+from src import funcs_json as fj
 
 def prompt_main(dict_cur):
     print(f'\nCharacters currently tracked: {len(dict_cur)}\n'
           'Please select an option:\n'
-          '\t1 - Add a new character\n'
+          '\t1 - Track a new character\n'
           '\t2 - Save and exit\n'
           '\t3 - Exit without saving')
 
@@ -20,7 +20,7 @@ while not toggle_quit:
 
     if response_main == '1':
         print('Response 1')
-        ## Eventually link to functions_chars.py
+        ## Eventually link to funcs_chars.py
     
     elif response_main == '2':
         fj.data_export(dict_cur)
