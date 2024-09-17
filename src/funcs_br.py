@@ -23,40 +23,43 @@ br_artifs_tiers = [
          'tier_secondary': 3}
     ]
 
+def prompt_br_quants(artif_primary: str, artif_secondary: str) -> list:
+    br_artifs_quants = []
+
+    print()
+    for i in br_artifs_tiers:
+        ex_init = i['ex_init']
+        ex_final = i['ex_final']
+        tier_primary = i['tier_primary']
+        tier_secondary = i['tier_secondary']
+
+        print(f'For EX level {ex_init} -> {ex_final}, how many tier {tier_primary} '
+            f'primary artifacts ({artif_primary.title()}) are needed?')
+        br_artifs_primary = int(input())
+
+        if (tier_secondary) and (not artif_primary == artif_secondary):
+            print(f'For EX level {ex_init} -> {ex_final}, how many tier {tier_secondary} '
+                f'secondary artifacts ({artif_secondary.title()}) are needed?')
+            br_artifs_secondary = int(input())
+        else:
+            br_artifs_secondary = 0
+
+        br_artifs_quants.append((br_artifs_primary, br_artifs_secondary))
+        print()
+
+    return br_artifs_quants
+
 def prompt_br_confirm(vars_char: dict) -> dict:
     artif_primary = vars_char['artifs_primary']
     artif_secondary = vars_char['artifs_secondary']
 
     toggle_artifs_quants_confirmed = False
     while not toggle_artifs_quants_confirmed:
-        ## Below block into separate function, output br_artifs_quants?
         try:
-            br_artifs_quants = []
-            print()
-
-            for i in br_artifs_tiers:
-                ex_init = i['ex_init']
-                ex_final = i['ex_final']
-                tier_primary = i['tier_primary']
-                tier_secondary = i['tier_secondary']
-
-                print(f'For EX level {ex_init} -> {ex_final}, how many tier {tier_primary} '
-                    f'primary artifacts ({artif_primary.title()}) are needed?')
-                br_artifs_primary = int(input())
-
-                if (tier_secondary) and (not artif_primary == artif_secondary):
-                    print(f'For EX level {ex_init} -> {ex_final}, how many tier {tier_secondary} '
-                        f'secondary artifacts ({artif_secondary.title()}) are needed?')
-                    br_artifs_secondary = int(input())
-                else:
-                    br_artifs_secondary = 0
-                print()
-
-                br_artifs_quants.append((br_artifs_primary, br_artifs_secondary))
+            br_artifs_quants = prompt_br_quants(artif_primary, artif_secondary)
         except ValueError:
             print('\nInvalid response, please try again.')
             continue
-        ## Above block into separate function, output br_artifs_quants?
         
         for i in range(len(br_artifs_quants)):
             tier_primary = br_artifs_tiers[i]['tier_primary']
@@ -80,5 +83,5 @@ def prompt_br_confirm(vars_char: dict) -> dict:
         else:
             print('\nInvalid response, please try again.')
     
-    print('Artifact quantities successfully assigned.')
+    print('\nBR-related artifact quantities successfully assigned.')
     return vars_char
