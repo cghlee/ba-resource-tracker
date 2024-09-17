@@ -67,7 +67,6 @@ def prompt_artifs_select(toggle_primary_secondary) -> str:
         except ValueError:
             print('Invalid response, please try again.\n')
     
-    print('Artifacts successfully assigned.')
     return selected_artifs
 
 def prompt_artifs_confirm(vars_char: dict) -> dict:
@@ -90,3 +89,6 @@ def prompt_artifs_confirm(vars_char: dict) -> dict:
             print('\nSelection was incorrect - please try again.\n')
         else:
             print('\nInvalid response, please try again.\n')
+
+    print('\nArtifacts successfully assigned.')
+    return vars_char

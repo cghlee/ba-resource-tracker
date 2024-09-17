@@ -3,7 +3,7 @@ import copy
 from src import funcs_json as fj
 
 def prompt_main(dict_cur):
-    print(f'\nCharacters currently tracked: {len(dict_cur)}\n'
+    print(f'\n{len(dict_cur)} characters currently tracked (X in database)\n'
           'Please select an option:\n'
           '\t1 - Track a new character\n'
           '\t2 - Save and exit\n'

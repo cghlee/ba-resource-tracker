@@ -1,4 +1,5 @@
 from funcs_artifs import prompt_artifs_confirm
+from funcs_br import prompt_br_confirm
 
 def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
     affils_total = [
@@ -53,10 +54,53 @@ def add_character(dict_curr: dict, name: str) -> dict:
 
         vars_char_artifs = prompt_artifs_confirm(vars_char_affil)
         
-        ## Create prompt interface to define number of materials needed per level
-            ## Blu-ray requirements for level 2, 3, 4, 5
-            ## Tech Note requirements for levels 4, 5, 6, 7, 8, 9
-            ## Hardcoded prompts per level, per type of material?
+        vars_char_br = prompt_br_confirm(vars_char_artifs)
 
+        # vars_char_tn = (...)
+
+        ## Create prompt interface to define number of materials needed per level
+            ## Tech Note requirements for levels 4, 5, 6, 7, 8, 9
+
+        ## Tech Notes
+        # 3 -> 4 = primary T1
+        # 4 -> 5 = primary T2, secondary T1
+        # 5 -> 6 = primary T2, secondary T1
+        # 6 -> 7 = primary T3, secondary T2
+        # 7 -> 8 = primary T4, secondary T3
+        # 8 -> 9 = primary T4, secondary T3
+
+        print(vars_char_br)
     else:
         print(f'{name.title()} is already being tracked.')
+
+test_dict = {
+    'yuuka': {
+        'affiliation': 'gehenna',
+        'artifs_primary': 'nimrud lens',
+        'artifs_secondary': 'antikythera mechanism',
+        'br_primary_reqs': [1,  # 1 -> 2
+                            2,  # 2 -> 3
+                            3,  # 3 -> 4
+                            4   # 4 -> 5
+                            ],
+        'br_secondary_reqs': [1,  # 2 -> 3
+                              2,  # 3 -> 4
+                              3   # 4 -> 5
+                              ],
+        'tn_primary_reqs': [1,  # 3 -> 4
+                            2,  # 4 -> 5
+                            2,  # 5 -> 6
+                            3,  # 6 -> 7
+                            4,  # 7 -> 8
+                            4   # 8 -> 9
+                            ],
+        'tn_secondary_reqs': [1,  # 4 -> 5
+                              1,  # 5 -> 6
+                              2,  # 6 -> 7
+                              3,  # 7 -> 8
+                              3   # 8 -> 9
+                              ],
+    },
+}
+
+add_character(test_dict, 'aru')
