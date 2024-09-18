@@ -48,20 +48,17 @@ def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
     return vars_char
 
 def add_db_character(dict_curr: dict, name: str) -> dict:
-    if name.lower() not in dict_curr:
-        vars_char = {}
+    vars_char = {}
 
-        vars_char_affil = prompt_affil_confirm(vars_char, name)
+    vars_char_affil = prompt_affil_confirm(vars_char, name)
 
-        vars_char_artifs = prompt_artifs_confirm(vars_char_affil)
-        
-        vars_char_br = prompt_br_confirm(vars_char_artifs)
+    vars_char_artifs = prompt_artifs_confirm(vars_char_affil)
+    
+    vars_char_br = prompt_br_confirm(vars_char_artifs)
 
-        vars_char_tn = prompt_tn_confirm(vars_char_br)
+    vars_char_tn = prompt_tn_confirm(vars_char_br)
 
-        dict_curr[name] = vars_char_tn
-        
-        print(f'{name.title()} successfully added.')
-        return dict_curr
-    else:
-        print(f'{name.title()} is already being tracked.')
+    dict_curr[name] = vars_char_tn
+    
+    print(f'{name.title()} successfully added to database.')
+    return dict_curr

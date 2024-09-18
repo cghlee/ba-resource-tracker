@@ -1,24 +1,28 @@
 import copy
 
 from src.funcs_json import data_import, data_export
-from src.funcs_entry import prompt_init
+from src.funcs_entry import prompt_init, prompt_name_confirm
 from src.funcs_chars import add_db_character
 
 dict_init = data_import()
-dict_cur = copy.deepcopy(dict_init)
+print(dict_init)
+
+dict_curr = copy.deepcopy(dict_init)
+print(dict_curr)
 
 toggle_quit = False
 while not toggle_quit:
-    prompt_init(dict_cur)
+    prompt_init(dict_curr)
     response_main = input()
     print()
 
     if response_main == '1':
-        ## TODO: Add funcs_entry prompt for character name, remove below test code
-        add_db_character(dict_cur, 'aru')
-    
+        name_confirmed = prompt_name_confirm(dict_curr)
+        
+        if name_confirmed:
+            add_db_character(dict_curr, name_confirmed)
     elif response_main == '2':
-        data_export(dict_cur)
+        data_export(dict_curr)
         toggle_quit = True
 
     elif response_main == '3':

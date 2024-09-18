@@ -20,8 +20,8 @@ def data_import() -> dict:
 
     return dict_init
 
-def data_export(dict_cur: dict):
-    data_final = json.dumps(dict_cur)
+def data_export(dict_curr: dict):
+    data_final = json.dumps(dict_curr)
 
     print('Saving updated data to "data.json"...')
     with open('data.json', 'w', encoding="UTF-8") as file:
