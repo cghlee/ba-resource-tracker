@@ -1,29 +1,24 @@
 import copy
 
-from src import funcs_json as fj
+from src.funcs_json import data_import, data_export
+from src.funcs_entry import prompt_init
+from src.funcs_chars import add_db_character
 
-def prompt_main(dict_cur):
-    print(f'\n{len(dict_cur)} characters currently tracked (X in database)\n'
-          'Please select an option:\n'
-          '\t1 - Track a new character\n'
-          '\t2 - Save and exit\n'
-          '\t3 - Exit without saving')
-
-dict_init = fj.data_import()
+dict_init = data_import()
 dict_cur = copy.deepcopy(dict_init)
 
 toggle_quit = False
 while not toggle_quit:
-    prompt_main(dict_cur)
+    prompt_init(dict_cur)
     response_main = input()
     print()
 
     if response_main == '1':
-        print('Response 1')
-        ## Eventually link to funcs_chars.py
+        ## TODO: Add funcs_entry prompt for character name, remove below test code
+        add_db_character(dict_cur, 'aru')
     
     elif response_main == '2':
-        fj.data_export(dict_cur)
+        data_export(dict_cur)
         toggle_quit = True
 
     elif response_main == '3':

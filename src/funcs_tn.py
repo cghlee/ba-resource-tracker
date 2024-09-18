@@ -93,5 +93,5 @@ def prompt_tn_confirm(vars_char: dict) -> dict:
         else:
             print('\nInvalid response, please try again.')
     
-    print('\nTN-related artifact quantities successfully assigned.')
+    print('\nTN-related artifact quantities successfully assigned.\n')
     return vars_char
