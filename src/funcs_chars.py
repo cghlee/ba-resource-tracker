@@ -1,5 +1,6 @@
 from funcs_artifs import prompt_artifs_confirm
 from funcs_br import prompt_br_confirm
+from funcs_tn import prompt_tn_confirm
 
 def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
     affils_total = [
@@ -56,50 +57,32 @@ def add_character(dict_curr: dict, name: str) -> dict:
         
         vars_char_br = prompt_br_confirm(vars_char_artifs)
 
-        # vars_char_tn = (...)
+        vars_char_tn = prompt_tn_confirm(vars_char_br)
 
         ## Create prompt interface to define number of materials needed per level
             ## Tech Note requirements for levels 4, 5, 6, 7, 8, 9
 
-        ## Tech Notes
-        # 3 -> 4 = primary T1
-        # 4 -> 5 = primary T2, secondary T1
-        # 5 -> 6 = primary T2, secondary T1
-        # 6 -> 7 = primary T3, secondary T2
-        # 7 -> 8 = primary T4, secondary T3
-        # 8 -> 9 = primary T4, secondary T3
-
-        print(vars_char_br)
+        print(vars_char_tn)
     else:
         print(f'{name.title()} is already being tracked.')
 
 test_dict = {
     'yuuka': {
-        'affiliation': 'gehenna',
+        'affiliation': 'millennium',
         'artifs_primary': 'nimrud lens',
         'artifs_secondary': 'antikythera mechanism',
-        'br_primary_reqs': [1,  # 1 -> 2
-                            2,  # 2 -> 3
-                            3,  # 3 -> 4
-                            4   # 4 -> 5
+        'br_artifs_quants': [(1, 0),    # 1 -> 2, T1 primary
+                            (2, 3),     # 2 -> 3, T2 primary, T1 secondary
+                            (4, 5),     # 3 -> 4, T3 primary, T2 secondary
+                            (6, 7)      # 4 -> 5, T4 primary, T3 secondary
                             ],
-        'br_secondary_reqs': [1,  # 2 -> 3
-                              2,  # 3 -> 4
-                              3   # 4 -> 5
-                              ],
-        'tn_primary_reqs': [1,  # 3 -> 4
-                            2,  # 4 -> 5
-                            2,  # 5 -> 6
-                            3,  # 6 -> 7
-                            4,  # 7 -> 8
-                            4   # 8 -> 9
+        'tn_artifs_quants': [(1, 0),    # 3 -> 4, T1 primary
+                            (2, 3),     # 4 -> 5, T2 primary, T1 secondary
+                            (4, 5),     # 5 -> 6, T2 primary, T1 secondary
+                            (6, 7),     # 6 -> 7, T3 primary, T2 secondary
+                            (8, 9),     # 7 -> 8, T4 primary, T3 secondary
+                            (9, 10)     # 8 -> 9, T4 primary, T3 secondary
                             ],
-        'tn_secondary_reqs': [1,  # 4 -> 5
-                              1,  # 5 -> 6
-                              2,  # 6 -> 7
-                              3,  # 7 -> 8
-                              3   # 8 -> 9
-                              ],
     },
 }
 

@@ -53,8 +53,8 @@ def prompt_br_confirm(vars_char: dict) -> dict:
     artif_primary = vars_char['artifs_primary']
     artif_secondary = vars_char['artifs_secondary']
 
-    toggle_artifs_quants_confirmed = False
-    while not toggle_artifs_quants_confirmed:
+    toggle_br_artifs_quants_confirmed = False
+    while not toggle_br_artifs_quants_confirmed:
         try:
             br_artifs_quants = prompt_br_quants(artif_primary, artif_secondary)
         except ValueError:
@@ -73,12 +73,12 @@ def prompt_br_confirm(vars_char: dict) -> dict:
                       f'secondary artifacts ({artif_secondary.title()})')
 
         print('\nAre the above artifact requirements correct? (Y/N)')
-        response_artifs_quants_confirmed = input()
-        if response_artifs_quants_confirmed.lower() == 'y':
+        response_br_artifs_quants_confirmed = input()
+        if response_br_artifs_quants_confirmed.lower() == 'y':
             vars_char['br_artifs_quants'] = br_artifs_quants
 
-            toggle_artifs_quants_confirmed = True
-        elif response_artifs_quants_confirmed.lower() == 'n':
+            toggle_br_artifs_quants_confirmed = True
+        elif response_br_artifs_quants_confirmed.lower() == 'n':
             print('\nSelection was incorrect - please try again.')
         else:
             print('\nInvalid response, please try again.')
