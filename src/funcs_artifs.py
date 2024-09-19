@@ -32,13 +32,13 @@ def prompt_artifs_select(toggle_primary_secondary) -> str:
 
     toggle_selected_artifs = False
     while not toggle_selected_artifs:
-        response_jfd = input(f'Is the {variable_text} artifact JFD-farmable? (Y/N)\n')
+        confirmation_jfd = input(f'Is the {variable_text} artifact JFD-farmable? (Y/N)\n').lower()
         print()
 
-        if response_jfd.lower() == 'y':
+        if confirmation_jfd == 'y':
             sorted_artifs = sorted(artifs_jfd)
             print('JFD artifacts selected.\n')
-        elif response_jfd.lower() == 'n':
+        elif confirmation_jfd == 'n':
             sorted_artifs = sorted(artifs_non_jfd)
             print('Non-JFD artifacts selected.\n')
         else:
@@ -79,13 +79,13 @@ def prompt_artifs_confirm(vars_char: dict) -> dict:
         print('\nPrimary artifact:', artifs_primary.title())
         print(f'Secondary artifact: {artifs_secondary.title()}')
         
-        response_artifs_confirm = input('\nAre the above selections correct? (Y/N)\n')
-        if response_artifs_confirm.lower() == 'y':
+        confirmation_artifs = input('\nAre the above selections correct? (Y/N)\n').lower()
+        if confirmation_artifs == 'y':
             vars_char['artifs_primary'] = artifs_primary
             vars_char['artifs_secondary'] = artifs_secondary
 
             toggle_confirmed_artifs = True
-        elif response_artifs_confirm.lower() == 'n':
+        elif confirmation_artifs == 'n':
             print('\nSelection was incorrect - please try again.\n')
         else:
             print('\nInvalid response, please try again.\n')

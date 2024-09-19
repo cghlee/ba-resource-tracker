@@ -30,12 +30,12 @@ def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
                 selected_affil = sorted_affils[int(response_affils) - 1]
 
                 print(f'\nAffilication selected: {selected_affil.title()}')
-                response_affils_confirmation = input('Is this correct? (Y/N)\n')
+                confirmation_affils = input('Is this correct? (Y/N)\n').lower()
 
-                if response_affils_confirmation.lower() == 'y':
+                if confirmation_affils == 'y':
                     vars_char['affiliation'] = selected_affil
                     toggle_selected_affils = True
-                elif response_affils_confirmation.lower() == 'n':
+                elif confirmation_affils == 'n':
                     print('\nSelection was incorrect - please try again.\n')
                 else:
                     print('\nInvalid response, please try again.\n')
@@ -47,7 +47,7 @@ def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
     print('\nAffiliation successfully assigned.\n')
     return vars_char
 
-def add_db_character(dict_curr: dict, name: str) -> dict:
+def add_db_character(dict_db_curr: dict, name: str) -> dict:
     vars_char = {}
 
     vars_char_affil = prompt_affil_confirm(vars_char, name)
@@ -58,5 +58,5 @@ def add_db_character(dict_curr: dict, name: str) -> dict:
 
     vars_char_tn = prompt_tn_confirm(vars_char_br)
 
-    dict_curr[name] = vars_char_tn
-    return dict_curr
+    dict_db_curr[name] = vars_char_tn
+    return dict_db_curr

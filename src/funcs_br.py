@@ -72,13 +72,13 @@ def prompt_br_confirm(vars_char: dict) -> dict:
                 print(f'\t{br_artifs_quants[i][1]}x (tier {tier_secondary}) '
                       f'secondary artifacts ({artif_secondary.title()})')
 
-        print('\nAre the above artifact requirements correct? (Y/N)')
-        response_br_artifs_quants_confirmed = input()
-        if response_br_artifs_quants_confirmed.lower() == 'y':
+        confirmation_br_artifs_quants = input('\nAre the above artifact requirements correct? (Y/N)\n').lower()
+        
+        if confirmation_br_artifs_quants == 'y':
             vars_char['br_artifs_quants'] = br_artifs_quants
 
             toggle_br_artifs_quants_confirmed = True
-        elif response_br_artifs_quants_confirmed.lower() == 'n':
+        elif confirmation_br_artifs_quants == 'n':
             print('\nSelection was incorrect - please try again.')
         else:
             print('\nInvalid response, please try again.')

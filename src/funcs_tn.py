@@ -82,13 +82,13 @@ def prompt_tn_confirm(vars_char: dict) -> dict:
                 print(f'\t{tn_artifs_quants[i][1]}x (tier {tier_secondary}) '
                       f'secondary artifacts ({artif_secondary.title()})')
 
-        print('\nAre the above artifact requirements correct? (Y/N)')
-        response_tn_artifs_quants_confirmed = input()
-        if response_tn_artifs_quants_confirmed.lower() == 'y':
+        confirmation_tn_artifs_quants = input('\nAre the above artifact requirements correct? (Y/N)\n').lower()
+        
+        if confirmation_tn_artifs_quants == 'y':
             vars_char['tn_artifs_quants'] = tn_artifs_quants
 
             toggle_tn_artifs_quants_confirmed = True
-        elif response_tn_artifs_quants_confirmed.lower() == 'n':
+        elif confirmation_tn_artifs_quants == 'n':
             print('\nSelection was incorrect - please try again.')
         else:
             print('\nInvalid response, please try again.')
