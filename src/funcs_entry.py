@@ -46,27 +46,28 @@ chars_total = [
         'yuzu (maid)',
     ]
 
-def prompt_init(dict_db_curr: dict):
-    print(f'\nX characters currently tracked ({len(dict_db_curr)} in database)\n'
+def prompt_init(dict_db_curr: dict, dict_tracked_curr: dict):
+    print(f'\n{len(dict_tracked_curr)} characters currently tracked ({len(dict_db_curr)} in database)\n'
           'Please select an option:\n'
-          '\t1 - Add character to database\n'
-          '\t2 - Edit character in database\n'
-          '\t3 - Save and exit\n'
-          '\t4 - Exit without saving')
+          '\t1 - Begin tracking a character\n'
+          '\t2 - Add character to database\n'
+          '\t3 - Edit character in database\n'
+          '\t4 - Save and exit\n'
+          '\t5 - Exit without saving')
 
 def prompt_name_db_add_confirm(dict_db_curr: dict) -> str:
     # TODO: Use alternative to "while True"?
     while True:
-        response_name_add = input('Input name of character to be added to the database: (input "x" to cancel)\n').lower()
+        response_name_db_add = input('Input name of character to be added to the database: (input "x" to cancel)\n').lower()
 
-        if response_name_add == 'x':
+        if response_name_db_add == 'x':
             print('\nCancelling addition of character to database.')
             return None
-        elif response_name_add in dict_db_curr:
-            print(f'\n{response_name_add.title()} is already in the database.')
+        elif response_name_db_add in dict_db_curr:
+            print(f'\n{response_name_db_add.title()} is already in the database.')
             return None
-        elif response_name_add in chars_total:
-            return response_name_add
+        elif response_name_db_add in chars_total:
+            return response_name_db_add
         else:
             print('\nCharacter not recognised, please try again.\n')
 
@@ -74,18 +75,42 @@ def prompt_name_db_edit_confirm(dict_db_curr: dict) -> str:
     # TODO: Use alternative to "while True"?
     toggle_name_db_edit_selected = False
     while not toggle_name_db_edit_selected:
-        response_name_edit = input('Input name of character in the database to be edited: (input "x" to cancel)\n').lower()
+        response_name_db_edit = input('Input name of character in the database to be edited: (input "x" to cancel)\n').lower()
 
-        if response_name_edit == 'x':
+        if response_name_db_edit == 'x':
             print('\nCancelling editing of character in database.')
             return None
-        elif response_name_edit in dict_db_curr:
-            confirmation_name_edit = input(f'\n{response_name_edit.title()} selected. Is this correct? (Y/N)\n').lower()
+        elif response_name_db_edit in dict_db_curr:
+            confirmation_name_db_edit = input(f'\n{response_name_db_edit.title()} selected. Is this correct? (Y/N)\n').lower()
             
-            if confirmation_name_edit == 'y':
+            if confirmation_name_db_edit == 'y':
                 print()
-                return response_name_edit
-            if confirmation_name_edit == 'n':
+                return response_name_db_edit
+            if confirmation_name_db_edit == 'n':
+                print()
+            else:
+                print('\nInvalid response, please try again.\n')
+        else:
+            print('\nCharacter not recognised, please try again.\n')
+
+def prompt_name_tracked_add_confirm(dict_db_curr: dict, dict_tracked_curr: dict) -> str:
+    # TODO: Use alternative to "while True"?
+    toggle_name_tracked_add_selected = False
+    while not toggle_name_tracked_add_selected:
+        response_name_tracked_add = input('Input name of character to be tracked: (input "x" to cancel)\n').lower()
+
+        if response_name_tracked_add == 'x':
+            print('\nCancelling addition of character to be tracked.')
+            return None
+        elif response_name_tracked_add in dict_tracked_curr:
+            print(f'\n{response_name_tracked_add.title()} is already being tracked.')
+            return None
+        elif response_name_tracked_add in dict_db_curr:
+            confirmation_name_tracked_add = input(f'\n{response_name_tracked_add.title()} selected. Is this correct? (Y/N)\n').lower()
+            
+            if confirmation_name_tracked_add == 'y':
+                return response_name_tracked_add
+            if confirmation_name_tracked_add == 'n':
                 print()
             else:
                 print('\nInvalid response, please try again.\n')
