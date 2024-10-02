@@ -31,7 +31,7 @@ def data_export(dict_db_curr: dict, dict_tracked_curr: dict):
         file_db.write(data_db_final)
         file_db.close
     
-    print(f'Saving updated character tracking information to "{filename_tracked}...')
+    print(f'Saving updated character tracking information to "{filename_tracked}"...')
     with open(filename_tracked, 'w', encoding="UTF-8") as file_tracked:
         file_tracked.write(data_tracked_final)
         file_tracked.close

@@ -1,7 +1,7 @@
-# Characters last updated on 2024-09-18
-# Most recent releases: Marina (Qipao), Tomoe (Qipao)
+# Characters last updated on 2024-10-02
+# Most recent releases: Kisaki, Reijo
 chars_total = [
-        'airi', 'airi_band', 'akane', 'akane (bunny)', 'akari',
+        'airi', 'airi (band)', 'akane', 'akane (bunny)', 'akari',
         'akari (new year)', 'ako', 'ako (dress)', 'aris', 'aris (maid)',
         'aru', 'aru (dress)', 'aru (new year)', 'asuna', 'asuna (bunny)',
         'atsuko', 'atsuko (swimsuit)', 'ayane', 'ayane (swimsuit)', 'azusa',
@@ -21,9 +21,9 @@ chars_total = [
         'kaho', 'kanna', 'kanna (swimsuit)', 'karin', 'karin (bunny)',
         'kasumi', 'kayoko', 'kayoko (dress)', 'kayoko (new year)', 'kazusa',
         'kazusa (band)', 'kikyou', 'kirara', 'kirino', 'kirino (swimsuit)',
-        'koharu', 'koharu (swimsuit)', 'kokona', 'kotama', 'kotama (camp)',
-        'kotori', 'kotori (cheer squad)', 'koyuki', 'maki', 'makoto', 'mari',
-        'mari (track)', 'marina', 'marina (qipao)', 'mashiro',
+        'kisaki', 'koharu', 'koharu (swimsuit)', 'kokona', 'kotama',
+        'kotama (camp)', 'kotori', 'kotori (cheer squad)', 'koyuki', 'maki',
+        'makoto', 'mari', 'mari (track)', 'marina', 'marina (qipao)', 'mashiro',
         'mashiro (swimsuit)', 'megu', 'meru', 'michiru', 'midori',
         'midori (maid)', 'mika', 'mimori', 'mimori (swimsuit)', 'mina',
         'mine', 'minori', 'misaka mikoto', 'misaki', 'miyako',
@@ -31,7 +31,7 @@ chars_total = [
         'moe (swimsuit)', 'momiji', 'momoi', 'momoi (maid)', 'mutsuki',
         'mutsuki (new year)', 'nagisa', 'natsu', 'neru', 'neru (bunny)',
         'noa', 'nodoka', 'nodoka (onsen)', 'nonomi', 'nonomi (swimsuit)',
-        'pina', 'reisa', 'renge', 'rumi', 'saki', 'saki (swimsuit)',
+        'pina', 'reijo', 'reisa', 'renge', 'rumi', 'saki', 'saki (swimsuit)',
         'sakurako', 'saori', 'saori (swimsuit)', 'saten ruiko', 'saya',
         'saya (casual)', 'sena', 'serika', 'serika (new year)',
         'serika (swimsuit)', 'serina', 'serina (christmas)', 'shigure',

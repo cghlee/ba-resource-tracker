@@ -29,7 +29,7 @@ def prompt_affil_confirm(vars_char: dict, name: str) -> dict:
             if (int(response_affils) - 1) in range_affils:
                 selected_affil = sorted_affils[int(response_affils) - 1]
 
-                print(f'\nAffilication selected: {selected_affil.title()}')
+                print(f'\nAffiliation selected: {selected_affil.title()}')
                 confirmation_affils = input('Is this correct? (Y/N)\n').lower()
 
                 if confirmation_affils == 'y':
