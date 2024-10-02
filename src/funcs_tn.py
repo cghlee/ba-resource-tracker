@@ -47,7 +47,7 @@ def prompt_tn_quants(artif_primary: str, artif_secondary: str) -> list:
             f'primary artifacts ({artif_primary.title()}) are needed?')
         tn_artifs_primary = int(input())
 
-        if (tier_secondary) and (not artif_primary == artif_secondary):
+        if (tier_secondary):
             print(f'For skill level {skill_init} -> {skill_final}, how many tier {tier_secondary} '
                 f'secondary artifacts ({artif_secondary.title()}) are needed?')
             tn_artifs_secondary = int(input())
@@ -78,7 +78,7 @@ def prompt_tn_confirm(vars_char: dict) -> dict:
             print(f'Skill level {i+3} -> {i+4}:')
             print(f'\t{tn_artifs_quants[i][0]}x (tier {tier_primary}) '
                   f'primary artifacts ({artif_primary.title()})')
-            if (tn_artifs_quants[i][1]) and (not artif_primary == artif_secondary):
+            if (tn_artifs_quants[i][1]):
                 print(f'\t{tn_artifs_quants[i][1]}x (tier {tier_secondary}) '
                       f'secondary artifacts ({artif_secondary.title()})')
 

@@ -37,7 +37,7 @@ def prompt_br_quants(artif_primary: str, artif_secondary: str) -> list:
             f'primary artifacts ({artif_primary.title()}) are needed?')
         br_artifs_primary = int(input())
 
-        if (tier_secondary) and (not artif_primary == artif_secondary):
+        if (tier_secondary):
             print(f'For EX level {ex_init} -> {ex_final}, how many tier {tier_secondary} '
                 f'secondary artifacts ({artif_secondary.title()}) are needed?')
             br_artifs_secondary = int(input())
@@ -68,7 +68,7 @@ def prompt_br_confirm(vars_char: dict) -> dict:
             print(f'EX level {i+1} -> {i+2}:')
             print(f'\t{br_artifs_quants[i][0]}x (tier {tier_primary}) '
                   f'primary artifacts ({artif_primary.title()})')
-            if (br_artifs_quants[i][1]) and (not artif_primary == artif_secondary):
+            if (br_artifs_quants[i][1]):
                 print(f'\t{br_artifs_quants[i][1]}x (tier {tier_secondary}) '
                       f'secondary artifacts ({artif_secondary.title()})')
 

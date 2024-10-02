@@ -1,4 +1,4 @@
-# Characters last updated on 2024-10-02
+# Characters last updated on: 2024-10-02
 # Most recent releases: Kisaki, Reijo
 chars_total = [
         'airi', 'airi (band)', 'akane', 'akane (bunny)', 'akari',
