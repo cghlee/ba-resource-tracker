@@ -59,60 +59,64 @@ def prompt_name_db_add_confirm(dict_db_curr: dict) -> str:
     # TODO: Use alternative to "while True"?
     while True:
         response_name_db_add = input('Input name of character to be added to the database: (input "x" to cancel)\n').lower()
+        print()
 
         if response_name_db_add == 'x':
-            print('\nCancelling addition of character to database.')
+            print('Cancelling addition of character to database.')
             return None
         elif response_name_db_add in dict_db_curr:
-            print(f'\n{response_name_db_add.title()} is already in the database.')
+            print(f'{response_name_db_add.title()} is already in the database.')
             return None
         elif response_name_db_add in chars_total:
             return response_name_db_add
         else:
-            print('\nCharacter not recognised, please try again.\n')
+            print('Character not recognised, please try again.\n')
 
 def prompt_name_db_edit_confirm(dict_db_curr: dict) -> str:
     # TODO: Use alternative to "while True"?
     toggle_name_db_edit_selected = False
     while not toggle_name_db_edit_selected:
         response_name_db_edit = input('Input name of character in the database to be edited: (input "x" to cancel)\n').lower()
+        print()
 
         if response_name_db_edit == 'x':
-            print('\nCancelling editing of character in database.')
+            print('Cancelling editing of character in database.')
             return None
         elif response_name_db_edit in dict_db_curr:
-            confirmation_name_db_edit = input(f'\n{response_name_db_edit.title()} selected. Is this correct? (Y/N)\n').lower()
+            confirmation_name_db_edit = input(f'{response_name_db_edit.title()} selected. Is this correct? (Y/N)\n').lower()
+            print()
             
             if confirmation_name_db_edit == 'y':
-                print()
                 return response_name_db_edit
-            if confirmation_name_db_edit == 'n':
-                print()
+            elif confirmation_name_db_edit == 'n':
+                pass
             else:
-                print('\nInvalid response, please try again.\n')
+                print('Invalid response, please try again.\n')
         else:
-            print('\nCharacter not recognised, please try again.\n')
+            print('Character not recognised, please try again.\n')
 
 def prompt_name_tracked_add_confirm(dict_db_curr: dict, dict_tracked_curr: dict) -> str:
     # TODO: Use alternative to "while True"?
     toggle_name_tracked_add_selected = False
     while not toggle_name_tracked_add_selected:
         response_name_tracked_add = input('Input name of character to be tracked: (input "x" to cancel)\n').lower()
+        print()
 
         if response_name_tracked_add == 'x':
-            print('\nCancelling addition of character to be tracked.')
+            print('Cancelling addition of character to be tracked.')
             return None
         elif response_name_tracked_add in dict_tracked_curr:
-            print(f'\n{response_name_tracked_add.title()} is already being tracked.')
+            print(f'{response_name_tracked_add.title()} is already being tracked.')
             return None
         elif response_name_tracked_add in dict_db_curr:
-            confirmation_name_tracked_add = input(f'\n{response_name_tracked_add.title()} selected. Is this correct? (Y/N)\n').lower()
+            confirmation_name_tracked_add = input(f'{response_name_tracked_add.title()} selected. Is this correct? (Y/N)\n').lower()
+            print()
             
             if confirmation_name_tracked_add == 'y':
                 return response_name_tracked_add
-            if confirmation_name_tracked_add == 'n':
-                print()
+            elif confirmation_name_tracked_add == 'n':
+                pass
             else:
-                print('\nInvalid response, please try again.\n')
+                print('Invalid response, please try again.\n')
         else:
-            print('\nCharacter not recognised, please try again.\n')
+            print('Character not recognised, please try again.\n')

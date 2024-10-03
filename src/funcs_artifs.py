@@ -77,18 +77,20 @@ def prompt_artifs_confirm(vars_char: dict) -> dict:
         artifs_secondary = prompt_artifs_select(2)
 
         print('\nPrimary artifact:', artifs_primary.title())
-        print(f'Secondary artifact: {artifs_secondary.title()}')
+        print('Secondary artifact:', artifs_secondary.title())
         
         confirmation_artifs = input('\nAre the above selections correct? (Y/N)\n').lower()
+        print()
+
         if confirmation_artifs == 'y':
             vars_char['artifs_primary'] = artifs_primary
             vars_char['artifs_secondary'] = artifs_secondary
 
             toggle_confirmed_artifs = True
         elif confirmation_artifs == 'n':
-            print('\nSelection was incorrect - please try again.\n')
+            print('Selection was incorrect - please try again.\n')
         else:
-            print('\nInvalid response, please try again.\n')
+            print('Invalid response, please try again.\n')
 
-    print('\nArtifacts successfully assigned.')
+    print('Artifacts successfully assigned.')
     return vars_char
