@@ -34,7 +34,8 @@ tn_artifs_tiers = [
     ]
 
 def prompt_tn_quants(artif_primary: str, artif_secondary: str) -> list:
-    tn_artifs_quants = []
+    # No artifacts are needed for skill levels 1 -> 2 and 2 -> 3
+    tn_artifs_quants = [(0, 0), (0, 0)]
 
     print()
     for i in tn_artifs_tiers:
