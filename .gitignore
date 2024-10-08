@@ -1,5 +1,4 @@
 __pycache__
 .venv
 
-data_db.json
 data_tracked.json
